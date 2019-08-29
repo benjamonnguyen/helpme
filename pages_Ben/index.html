@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Falcon | Dashboard &amp; WebApp Template</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="assets/lib/jqvmap/jqvmap.min.css" rel="stylesheet">
+    <link href="assets/lib/datatables-bs4/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="assets/lib/datatables.net-responsive-bs4/responsive.bootstrap4.css" rel="stylesheet">
+    <link href="assets/css/theme.css" rel="stylesheet">
+    <link href='assets/css/overlay.css' rel='stylesheet'>
+
+  </head>
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+
+        <div class="container">
+            <div class="card mb-3">
+              <div class="card-body rounded-soft bg-gradient">
+                <div class="row text-white align-items-center no-gutters">
+                  <div class="col">
+                    <h4 class="text-white mb-0">Efficient Frontier</h4>
+                    <button class="btn" style='color: white; padding-bottom: 20px;' onclick='on0()'>more info ></button>
+                  </div>
+                  <div class="col-auto d-none d-sm-block" style='padding-bottom: 22px;'>
+                    <label class="container"> Inefficient Portfolios
+                        <input type="checkbox" checked="checked" id='inefficient'>
+                        <span class="checkmark"></span>
+                    </label>
+                      
+                    <label class="container">Compare to S&P 500
+                      <input type="checkbox" id='spy'>
+                      <span class="checkmark"></span>
+                    </label>
+    
+                  </div>
+                </div>
+                <canvas class="rounded" id="scatterChart" width="1618" height="500"></canvas>
+                <div class='overlay' id='overlay0' onclick='off0()'>
+                  <div class='text'>Efficient Frontier: the set of optimal portfolios that offer the highest expected return for a defined level of risk 
+                    or the lowest risk for a given level of expected return<br><br>
+                    Sharpe Ratio: the measure of Return over Volatility (Risk-Adjusted Return)<br><br>
+                    Minimum Variance Portfolio: the portfolio with the lowest associated risk<br><br>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+      <div class="container">
+          <div class="card mb-3">
+            <div class="card-body rounded-soft bg-gradient">
+              <div class="row text-white align-items-center no-gutters">
+                <div class="col">
+                  <h4 class="text-white mb-0">Return vs Volatility</h4>
+                  <button class="btn" style='color: white; padding-bottom: 20px;' onclick='on1()'>more info ></button>
+                </div>
+                <div class="col-auto d-none d-sm-block" style='padding-bottom: 22px;'>
+                    <h5 id='rtn' style='color: white; padding-right: 20px;'>Expected Return:&nbsp &nbsp &nbsp &nbsp</h5>
+                    <h5 id='vol' style='color: white; padding-right: 20px;'>Standard Deviation:&nbsp &nbsp &nbsp &nbsp</h5>
+                </div>
+              </div>
+              <canvas class="rounded" id="rtnChart" width="1618" height="400" style='padding-bottom: 22px;'></canvas>
+              <canvas class="rounded" id="volChart" width="1618" height="400"></canvas>
+              <div class='overlay' id='overlay1' onclick='off1()'>
+                  <div class='text'>Click on the legend to see how risk and return tend to correlate!
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+        
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/lib/stickyfilljs/stickyfill.min.js"></script>
+    <script src="assets/lib/sticky-kit/sticky-kit.min.js"></script>
+    <script src="assets/lib/is_js/is.min.js"></script>
+    <script src="assets/lib/@fortawesome/all.min.js"></script>
+    <script src="assets/lib/chart.js/Chart.min.js"></script>
+    <script src="assets/lib/jqvmap/jquery.vmap.js"></script>
+    <script src="assets/lib/jqvmap/maps/jquery.vmap.world.js" charset="utf-8"></script>
+    <script src="assets/lib/jqvmap/maps/jquery.vmap.usa.js" charset="utf-8"></script>
+    <script src="assets/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="assets/lib/datatables-bs4/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/lib/datatables.net-responsive/dataTables.responsive.js"></script>
+    <script src="assets/lib/datatables.net-responsive-bs4/responsive.bootstrap4.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/renderEF.js"></script>
+    <script src="assets/js/renderVOL.js"></script>
+
+  </body>
+</html>
