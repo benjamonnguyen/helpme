@@ -913,6 +913,7 @@ scatterDataSorted.sort(compare);
 var optimalPfolio = [];
 var unoptimalPfolio = [];
 var badPfolio = [];
+var badPfolioAbridged = [];
 var terriblePfolio = [];
 var modPfolio = [];
 var minvariancePfolio = {};
@@ -956,6 +957,10 @@ modPfolio = toMod.filter(function(value){
     return value != bestPfolio;
 });
 
+for(let i = 0; i < badPfolio.length; i += 5) {
+    badPfolioAbridged.push(badPfolio[i]);
+ }
+
 // RENDER CHART!
 function renderEF() {
     function newChart(chart, config) {
@@ -986,13 +991,16 @@ function renderEF() {
                     },
                     {
                     id: 'bad',
-                    data: badPfolio,
+                    data: badPfolioAbridged,
                     borderColor: rgbaColor('#fff', 0.5),
                     backgroundColor: rgbaColor('#fff', 0.15)
                     }
                 ]
             },
             options: {
+                animation: {
+                    duration: 2500
+                },
                 events:['click'],
                 legend: {
                     display: false
@@ -1067,7 +1075,7 @@ function renderEF() {
         };
         var bad = {
             id: 'bad',
-            data: badPfolio,
+            data: badPfolioAbridged,
             borderColor: rgbaColor('#fff', 0.5),
             backgroundColor: rgbaColor('#fff', 0.15)
         };

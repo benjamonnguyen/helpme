@@ -148,6 +148,9 @@ function renderVOL() {
             ]
         },
         options: {
+            animation: {
+                duration: 2000
+            },
             elements: {
                 line: {
                     tension: 0
@@ -217,9 +220,15 @@ function renderVOL() {
             ]
         },
         options: {
+            animation: {
+                duration: 2000
+            },
             elements: {
                 line: {
                     tension: 0.4
+                },
+                point: {
+                    radius: 0
                 }
             },
             legend: {
@@ -316,15 +325,17 @@ function renderVOL() {
 
 var linkedData = []
 
-window.onload = function(){
-    var defaultURL = "/defaultVol"
-    d3.json(defaultURL).then(function(data){
-    console.log("[Flask Route | JavaScript] Query Volatility Data")
-    console.log(data)
+// window.onload = function(){
+//     var defaultURL = "/defaultVol"
+//     d3.json(defaultURL).then(function(data){
+//     console.log("[Flask Route | JavaScript] Query Volatility Data")
+//     console.log(data)
 
-});
-    renderVOL();
-}
+// });
+//     renderVOL();
+// }
+
+window.onload=renderVOL();
 
 function off1() {
     document.getElementById('overlay1').style.display = 'none';
